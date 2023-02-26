@@ -7,10 +7,13 @@ function Hero({movies}) {
   return (
     <div className='movie-carousel-container'>
       <Carousel>
-        {movies?.map((movie) => (
-          <Paper key={movie.id}>
+        {movies?.map((movie) => {
+          return(
+            <Paper key={movie.id}>
             <div class="movie-card-container">
-              <div class="movie-card">
+              <div class="movie-card" style={{
+                "--img": `url(${movie.backdrops[0]})`
+              }}>
                 <div class="movie-detail">
                   <div class="movie-poster">
                      <img src={movie.poster} alt={movie.title} />
@@ -22,7 +25,8 @@ function Hero({movies}) {
               </div>
             </div>
           </Paper>
-        ))}
+          )
+        })}
       </Carousel>
     </div>
   )
