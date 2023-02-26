@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #2a2a2a;
+  background-color: #000000;
   color: #fff;
   margin-top: 10px;
 }
