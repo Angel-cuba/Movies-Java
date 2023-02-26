@@ -10,15 +10,15 @@ function Hero({movies}) {
         {movies?.map((movie) => {
           return(
             <Paper key={movie.id}>
-            <div class="movie-card-container">
-              <div class="movie-card" style={{
+            <div className="movie-card-container">
+              <div className="movie-card" style={{
                 "--img": `url(${movie.backdrops[0]})`
               }}>
-                <div class="movie-detail">
-                  <div class="movie-poster">
+                <div className="movie-detail">
+                  <div className="movie-poster">
                      <img src={movie.poster} alt={movie.title} />
                   </div>
-                  <div class="movie-title">
+                  <div className="movie-title">
                     <h1>{movie.title}</h1>
                   </div>
                 </div>
