@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import api from './api/axiosConfig';
 
 function App() {
+  const [movies, setMovies] = React.useState();
+  console.log('🚀 ~ file: App.js:6 ~ App ~ movies:', movies);
+
+  const getMovies = async () => {
+    try {
+      const response = await api.get('/api/v1/movies');
+      setMovies(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    getMovies();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Heloooooooooooooooo</h1>
     </div>
   );
 }
