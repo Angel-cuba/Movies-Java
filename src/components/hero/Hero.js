@@ -4,9 +4,15 @@ import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function Hero({ movies }) {
+  const navigate = useNavigate();
+  function reviewsAction(movieId) {
+    navigate(`/Reviews/${movieId}`);
+  }
+
   return (
     <div className="movie-carousel-container">
       <Carousel>
@@ -37,6 +43,11 @@ function Hero({ movies }) {
                           <FontAwesomeIcon icon={faCirclePlay} className="play-button-icon" />
                         </div>
                       </Link>
+                      <div className="movie-review-button-container">
+                        <Button variant="info" className="movie-review-button" onClick={() => reviewsAction(movie.imdbId)}>
+                          Reviews
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
